@@ -35,4 +35,7 @@ jobs:
 
       - name: Build Android APK (production)
         working-directory: frontend
-        run: eas build --platform android --profile production --non-interactive
+        env:
+          EAS_BUILD_NO_EXPO_GO_WARNING: true
+          EAS_NO_VCS: 1
+        run: eas build --platform android --profile production --non-interactive --no-wait
